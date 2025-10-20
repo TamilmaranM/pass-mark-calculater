@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Theory Subjects</title>              <!--web page name-->     
+        <link rel="icon" href="big/download.jpeg">   <!--web page photo-->
+
+                                    <!--style css start-->
+        <style>
+                form{
+                    color:black;
+                    border: 2px solid black; 
+                    border-radius: 15px;
+                    width: 500px;
+                    margin: 40px auto;
+                    padding: 25px;
+                    box-shadow: 25px 25px 25px black;
+                }
+                .one,.two,.three{
+                  color:blue;
+                  background-color: white;
+                  display:inline;
+                  border-radius: 10px;
+                  border: 1px solid black;
+                }
+                .ip1,.ip2,.ip3{
+                    height: 40px;
+                    border-radius: 5px;
+                    background-color:white;
+                    color:black ;
+                    border: 2px solid black;
+                    box-shadow: 5px 5px 5px rgb(0, 102, 255);
+                    font-weight: bold;
+                    text-align: center;
+                }
+                .op1,.op2,.op3,.op4,.op5,.op6,.op7{
+                    height: 30px;
+                    border-radius: 5px;
+                    background-color:white;
+                    border: 2px solid black;
+                    box-shadow: 5px 5px 5px rgb(0, 102, 255);
+                    text-align: center;
+                    font-weight: bold;
+                }
+                .but1,.but2,.op8{
+                    height: 40px;
+                    width: 100px;
+                    border-radius: 5px;
+                    background-color: black;
+                    color: white;
+                }
+                .but1:hover,.but2:hover,.op8:hover {
+                    border-color:white;
+                    box-shadow: 0 0 0px white;
+                }
+                .ip1:hover,.ip2:hover,.ip3:hover,.op7:hover{
+                    border-color: black;
+                    box-shadow: 0 0 20px black;
+                }
+                
+                input::placeholder{
+                    text-align: center;
+                    color: gray;
+                }
+                body{
+                    background-image: url("big/blue-blank-notepad-with-copy-space_23-2148475334.jpg");
+                }
+        </style>
+                                    <!--style css close-->
+    </head>
+
+                                     <!--body start-->
+
+    <body>
+        <center>
+        <h1 class="one">Theory Subjects</h1>
+        <hr>
+        <h1 class="two">Calculation</h1>
+        </center>
+                                <!--first table internal calculation-->
+
+
+
+        <h1>
+        <center>
+        <form>
+            <table>
+                <tr>
+                    <td>First Cat Mark </td>
+                    <td> <input class="ip1" type="number" placeholder="Enter your Mark" id="num1"></td>
+                </tr>
+                <tr>
+                    <td>Second Cat Mark</td>
+                    <td> <input class="ip2" type="number" placeholder="Enter your Mark" id="num2"></td>
+                </tr>
+                <tr>
+                    <td>Assignment Mark</td>
+                    <td> <input class="ip3" type="number" placeholder="Enter your Mark" id="num3"></td>
+                </tr>
+                <tr>
+                    <td><input class="but1" type="button" value="submit" onclick="find()"></td>
+                    <td><input class="but2" type="reset"></td>
+                </tr>
+            </table>
+        </form>
+        <h4 id="inter">INTERNAL : </h4>
+        </center>
+        </h1>
+
+
+
+        
+        <hr>
+
+                            <!--second table grade calculation-->
+
+        <center>
+            <h1 class="three">Result</h1>
+            <h1>
+            <form>
+                <table>
+                    <tr>
+                    <td>Internal</td>
+                    <td><input class="op7" type="number" id="internal" placeholder="Enter Internal"> </td>
+                    </tr>
+                    <tr>
+                    <td>Pass Mark or C grade</td>
+                    <td> <input class="op1" type="text" placeholder="pass mark" readonly ></td>
+                    </tr>
+                    <tr>
+                    <td> B grade </td>
+                    <td> <input class="op2" type="text" placeholder="B grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>B+ grade</td>
+                    <td> <input class="op3" type="text" placeholder="B+ grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>A grade</td>
+                    <td> <input class="op4" type="text" placeholder="A grade mark" readonly ></td>
+                    </tr>
+                    <tr>
+                    <td>A+ garde</td>
+                    <td> <input class="op5" type="text" placeholder="A+ grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>S grade</td>
+                    <td> <input class="op6" type="text" placeholder="S grade mark" readonly></td>
+                    </tr>
+                </table>
+                <input type="button" class="op8" value="calculate" onclick="calculategrades()">
+            </form>
+            </h1>
+        </center>
+
+           <hr>
+                                     <!--java script-->
+        <script>
+
+                //internal calculation
+
+            function find() {
+                let num1 = document.getElementById("num1").value;
+                let num2 = document.getElementById("num2").value;
+                let num3 = document.getElementById("num3").value;
+                let int = (((Number(num1)+Number(num2))/100)*32) + ((Number(num3)/10)*8);
+
+                document.getElementById("inter").innerText ="INTERNAL :" + int.toFixed(1);    
+            }
+                //Mark calculation
+
+            function calculategrades() {
+                let internal = Number(document.getElementById("internal").value);
+
+                let grades = [
+                        { name: "C", target: 50, class: "op1" },
+                        { name: "B", target: 56, class: "op2" },
+                        { name: "B+", target: 61, class: "op3" },
+                        { name: "A", target: 71, class: "op4" },
+                        { name: "A+", target: 81, class: "op5" },
+                        { name: "S", target: 91, class: "op6" }
+                ];
+
+                 grades.forEach(g => {
+                    let externalNeeded = (g.target - internal) / 0.6; // convert to 100 marks
+                    if (externalNeeded < 45) externalNeeded = 45;     // minimum external 45
+                    if (externalNeeded > 100) {
+                    document.querySelector(`.${g.class}`).value = "Not possible";
+                    } else {
+                    document.querySelector(`.${g.class}`).value = externalNeeded.toFixed(1);
+                    }
+                });
+            }
+
+                
+        </script>
+
+    </body>    
+                                  <!--body close-->
+</html>
+                         <!--This the mark calculater website-->

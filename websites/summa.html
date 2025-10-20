@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Table Output Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    td {
+      padding: 10px;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #888;
+      border-radius: 5px;
+      text-align: center;
+    }
+    input[type="button"] {
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Add Two Numbers (Form Table)</h2>
+
+  <form>
+    <table>
+      <tr>
+        <td><label>First Number:</label></td>
+        <td><input type="number" id="num1"></td>
+      </tr>
+      <tr>
+        <td><label>Second Number:</label></td>
+        <td><input type="number" id="num2"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Add" onclick="addNumbers()"></td>
+        <td><input type="text" id="result" placeholder="Result" readonly></td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    function addNumbers() {
+      let n1 = Number(document.getElementById("num1").value);
+      let n2 = Number(document.getElementById("num2").value);
+      document.getElementById("result").value = (n1 + n2).toFixed(1); // show in output box
+    }
+  </script>
+
+</body>
+</html>

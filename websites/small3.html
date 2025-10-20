@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LIT</title>                                    <!--web page-->
+        <link rel="icon" href="big/download (1).jpeg">      <!--web page photo-->
+
+                        <!--style css start --> 
+        <style>
+            body {
+                background-image: url("big/3840x2160\ \(1\).jpg");
+                background-size: cover;
+            }
+            form{
+                color: white;
+                border-radius:15px;
+                border: 2px solid white;
+                padding: 25px;
+                width: 500px;
+                margin: 40px auto;
+                box-shadow: 25px 25px 25px black;
+            }
+            
+            .h1,.h2,.h3{
+                background-color: black;
+                color: white;
+                display: inline;
+                border-radius:10px;
+                border: 3px solid white;
+                text-align: center;
+                margin-top:150px;
+            }
+            .ip1,.ip2,.ip3,.ip4{
+                height: 40px;
+                background-color: black;
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                border: 2px solid white;
+                font-weight: bold;
+
+            }
+            .ip1:hover,.ip2:hover,.ip3:hover,.ip4:hover,.op7:hover{
+                border-color: white;
+                box-shadow: 0 0 30px white;
+            }
+            .but1,.but2,.op8{
+                height: 40px;
+                width: 100px;
+                border-radius: 5px;
+                border: 2px solid black;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+            }
+            .but1:hover,.but2:hover,.op8:hover{
+                border-color:violet;
+                box-shadow: 0 0 30px violet;
+            }
+            .op1,.op2,.op3,.op4,.op5,.op6,.op7{
+                    height: 30px;
+                    border-radius: 5px;
+                    background-color:black;
+                    color: white;
+                    border: 2px solid white;
+                    text-align: center;
+                    font-weight: bold;
+                    box-shadow: 0 0 30px white;
+                }
+
+        </style>              <!--style css close-->
+    </head>
+    <body>                     <!--body start -->
+        <center>
+        <h1 class="h1">Lab Integrated Subjects</h1>
+        <hr>
+        <h1 class="h2"> calculation</h1>
+        </center>
+                            <!--internal calculation table-->
+        <h1>
+        <center>
+        <form>
+            <table>
+                <tr>
+                    <td>First Cat Mark</td>
+                    <td> <input type="number" class="ip1" id="num1" placeholder="Enter your Mark "></td>
+                </tr>
+                <tr>
+                    <td>Second Cat Mark</td>
+                    <td > <input type="number" class="ip2" id="num2" placeholder="Enter your Mark" ></td>
+                </tr>
+                <tr>
+                    <td>Lab component Mark</td>
+                    <td> <input type="number" class="ip3" id="num3" placeholder="Enter your Mark" ></td>
+                </tr>
+                <tr>
+                    <td>Assignment Mark</td>
+                    <td> <input type="number" class="ip4" id="num4" placeholder="Enter your Mark"></td>
+                </tr>
+                <tr>
+                    <td> <input class="but1" type="button" onclick="find()" value="submit"> </td>
+                     <td> <input class="but2" type="reset" > </td>
+                </tr>
+            </table>
+        </form>
+        <h4 style="color:white; text-shadow: 2px 2px 8px rgba(0,0,0,0.6)" id="inter">INTERNAL :</h4>
+        </center>
+        </h1>
+        <hr>
+        <center>
+            <h1 class="h3">Result</h1>
+            <h1>
+            <form>
+                <table>
+                    <tr>
+                    <td>Internal</td>
+                    <td><input class="op7" type="number" id="internal" placeholder="Enter Internal"> </td>
+                    </tr>
+                    <tr>
+                    <td>Pass Mark or C grade</td>
+                    <td> <input class="op1" type="text" placeholder="pass mark" readonly ></td>
+                    </tr>
+                    <tr>
+                    <td> B grade </td>
+                    <td> <input class="op2" type="text" placeholder="B grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>B+ grade</td>
+                    <td> <input class="op3" type="text" placeholder="B+ grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>A grade</td>
+                    <td> <input class="op4" type="text" placeholder="A grade mark" readonly ></td>
+                    </tr>
+                    <tr>
+                    <td>A+ garde</td>
+                    <td> <input class="op5" type="text" placeholder="A+ grade mark" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>S grade</td>
+                    <td> <input class="op6" type="text" placeholder="S grade mark" readonly></td>
+                    </tr>
+                </table>
+                <input type="button" class="op8" value="calculate" onclick="calculategrades()">
+            </form>
+            </h1>
+        </center>
+        <hr>
+
+        <script>                 
+                                //internal calculation
+        function find() {
+                let num1 = document.getElementById("num1").value;
+                let num2 = document.getElementById("num2").value;
+                let num3 = document.getElementById("num3").value;
+                let num4 = document.getElementById("num4").value;
+                let int = (((Number(num1)+Number(num2))/100)*30) + ((Number(num4)/10)*5)+((Number(num3)/100)*15);
+
+                document.getElementById("inter").innerText ="INTERNAL :" + int.toFixed(1);    
+        }
+                          // grade calculation 
+        function calculategrades(){
+            let internal = Number(document.getElementById("internal").value);
+
+                let grades = [
+                        { name: "C", target: 50, class: "op1" },
+                        { name: "B", target: 56, class: "op2" },
+                        { name: "B+", target: 61, class: "op3" },
+                        { name: "A", target: 71, class: "op4" },
+                        { name: "A+", target: 81, class: "op5" },
+                        { name: "S", target: 91, class: "op6" }
+                ];
+
+                 grades.forEach(g => {
+                    let externalNeeded = (g.target - internal) / 0.5; // convert to 100 marks
+                    if (externalNeeded < 45) externalNeeded = 45;     // minimum external 45
+                    if (externalNeeded > 100) {
+                    document.querySelector(`.${g.class}`).value = "Not possible";
+                    } else {
+                    document.querySelector(`.${g.class}`).value = externalNeeded.toFixed(1);
+                    }
+                });
+            }
+            
+        </script>
+        
+    </body>    
+</html>
