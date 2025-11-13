@@ -1,81 +1,173 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>BYPASS</title>
-        <link rel="icon" href="big/average.png">
-        <style>
-            body{
-                background-color: gray;
-                background-size: cover;
-            }
-            .h1,.h2,.h3,.h4,.h5{
-                color: white;
-                background-color: black;
-                border: 2px solid white;
-                border-radius: 10px;
-                display: inline;
-                box-shadow: 0 0 30px white;
-            }
-            .p1,.p2,.p3,.p4,.p5{
-                color:white;
-                font-weight: bold;
-            }
-            .but1,.but2{
-                cursor: pointer;
-                background-color: black;
-                color: white;
-                border: 2px solid white;
-                border-radius: 10px;
-            }
-            .but1:hover,.but2:hover{
-                border-color: white;
-                box-shadow:0 0 30px white;
-            }
-        </style>
-    </head>
-    <body>
-         &nbsp; 
-        <h1 class="h1">&nbsp; BYPASS 🔮&nbsp;</h1>
-        <center>
-        <h1 class="h2">&nbsp; Pass Mark Calculator &nbsp;</h1> 
-        </center>
-        
-          <hr>
-        &nbsp; <h2 class="h3"> &nbsp; Theory Subjects &nbsp; </h2>
-        <h3 class="p1">&nbsp; 1)Enter Your 1st and 2nd CAT Mark out of 50.</h3>
-        <h3 class="p2">&nbsp; 2)Enter Yout Assignment Mark out of 10.</h3>
-        <center>
-        
-        <h1>
-            <button class="but1" >
-            <h2><h3>
-            <a href="./small2.html">Enter  your Marks</a>
-            </h3></h2>
-            </button>
-        </h1>
-        </center>
-        <hr>
-        
-        <h1></h1>
-        &nbsp;<h2 class="h4">&nbsp; Lab Integrated subjects &nbsp; </h2>
-        <h3 class="p3">&nbsp; 1)Enter Your 1st and 2nd CAT Mark out of 50.</h3>
-        <h3 class="p4">&nbsp; 2)Enter Yout Assignment Mark out of 10.</h3>
-        <h3 class="p5">&nbsp; 3)Enter Your Lab Component mark out of 100.</h3>
-        <center>
-        <h1>
-            <button class="but2">
-            <h2><h3>
-            <a href="./small3.html">Enter  your Marks</a>
-            </h3></h2>
-            </button>
-            <hr>
-        
-    
-            
-            
-            
-    </body>
-    
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYPASS - Pass Mark Calculator 🔮</title>
+  <link rel="icon" href="big/average.png">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden; /* 🚫 Prevent horizontal scroll */
+      scroll-behavior: smooth;
+    }
+
+    /* ===== BODY ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: white;
+      text-align: center;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      background: -webkit-linear-gradient(#ffdd00, #ff6600);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header h2 {
+      color: #ffc107;
+      font-weight: 500;
+      margin: 10px 0;
+    }
+
+    header p {
+      color: #ddd;
+      max-width: 600px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin: 50px auto;
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .section h2 {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+
+    .section img {
+      width: 80%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .section img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== BUTTON ===== */
+    .button {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6600, #ffcc00);
+      color: black;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: linear-gradient(90deg, #ffcc00, #ff6600);
+      transform: scale(1.05);
+    }
+
+    /* ===== HR & FOOTER ===== */
+    hr {
+      width: 70%;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #ff6600, #ffcc00);
+      margin: 30px auto;
+      border-radius: 5px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #ccc;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== RESPONSIVE FIX ===== */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .section {
+        padding: 20px;
+      }
+      .section h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Pass Mark Calculator 🔮</h1>
+    <h2>Enter your CAT Marks to Find Your Semester Pass Mark!</h2>
+    <p>This calculator helps you know how many marks you need to pass — or even achieve A, O, and B grades easily.</p>
+  </header>
+
+  <section class="section">
+    <h2>Theory Subjects</h2>
+    <br><br>
+    <a class="button" href="./small2.html">Enter Your Marks</a>
+  </section>
+
+  <hr>
+
+  <section class="section">
+    <h2>Lab Integrated Subjects</h2>
+    <br><br>
+    <a class="button" href="./small3.html">Enter Your Marks</a>
+  </section>
+
+  <footer>
+    © 2025 BYPASS | Designed with 💻 and 🔮
+  </footer>
+</body>
 </html>
 
